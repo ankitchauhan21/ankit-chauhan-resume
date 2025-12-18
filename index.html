@@ -1,270 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resume | Ankit Chauhan</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --primary: #2563eb;
-  --bg: #f1f5f9;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background: var(--bg);
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
-
-/* A4-style container */
-.resume-container {
-  width: 210mm;   /* A4 width */
-  max-width: 100%;
-  background: var(--bg);
-  padding: 30px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-}
-
-/* ===== HEADER ===== */
-header {
-  background: linear-gradient(135deg, #1e3a8a, #2563eb);
-  color: white;
-  padding: 60px 20px;
-  border-radius: 8px;
-}
-
-.header-container {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.profile-img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 5px solid rgba(255,255,255,0.4);
-  object-fit: cover;
-}
-
-.header-text h1 {
-  font-size: 2.6rem;
-  font-weight: 700;
-}
-
-.header-text p {
-  margin-top: 6px;
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-.header-links {
-  margin-top: 15px;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.header-links a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.2);
-  transition: 0.3s;
-}
-
-.header-links a:hover {
-  background: rgba(255,255,255,0.35);
-}
-
-/* ===== MAIN ===== */
-main {
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 0 20px;
-}
-
-.section {
-  margin-bottom: 45px;
-}
-
-.section h2 {
-  font-size: 1.7rem;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.section h2::after {
-  content: '';
-  width: 50px;
-  height: 4px;
-  background: var(--primary);
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  border-radius: 4px;
-}
-
-/* ===== CARDS ===== */
-.card {
-  background: var(--card);
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  margin-bottom: 20px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* ===== PROJECTS ===== */
-.project-title {
-  font-weight: 600;
-}
-
-.project-tech {
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-bottom: 8px;
-}
-
-/* ===== SKILLS ===== */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.skill {
-  background: #e0e7ff;
-  color: #1e3a8a;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  margin: 60px 0 20px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px) {
-  .header-container {
-    text-align: center;
-    justify-content: center;
+  /* Reset & base */
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
-}
+  body {
+    margin: 0; background: #fff; font-family: 'Inter', sans-serif;
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  a {
+    color: #444;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .resume {
+    width: 800px;
+    max-width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    display: flex;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+
+  /* Left Sidebar */
+  .sidebar {
+    background: #f9f9fb;
+    padding: 36px 28px 36px 28px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border-right: 1px solid #ddd;
+    user-select: none;
+  }
+
+  /* Profile photo */
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    margin-bottom: 12px;
+    align-self: center;
+  }
+
+  /* Name and role */
+  .name-role {
+    text-align: center;
+  }
+  .name-role h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #3c3c3c;
+    letter-spacing: 0.05em;
+  }
+  .name-role p {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 500;
+    margin-top: 0;
+  }
+
+  /* Contact info */
+  .contact {
+    font-size: 0.85rem;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .contact-item svg {
+    width: 16px;
+    height: 16px;
+    fill: #666;
+  }
+  .contact-item span, .contact-item a {
+    color: #555;
+  }
+  .contact-item a {
+    font-weight: 500;
+  }
+
+  /* Section titles in sidebar */
+  .sidebar-section-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    color: #4a4a4a;
+    border-left: 3px solid #6e5edc;
+    padding-left: 10px;
+  }
+
+  /* Sidebar lists */
+  .sidebar-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sidebar-list li {
+    font-size: 0.85rem;
+    color: #444;
+    line-height: 1.3;
+  }
+
+  /* Interests pills */
+  .interests-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .interest-pill {
+    font-size: 0.75rem;
+    background: #e7e4fc;
+    color: #6e5edc;
+    padding: 5px 10px;
+    border-radius: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Main content */
+  .main-content {
+    flex: 1;
+    padding: 36px 40px 36px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* Section */
+  .section {
+    page-break-inside: avoid;
+  }
+  .section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-left: 5px solid #6e5edc;
+    padding-left: 12px;
+    margin-bottom: 14px;
+    color: #3c3c3c;
+  }
+
+  /* Education, Experience, Orgs */
+  .job, .education-item, .org-item, .cert-item {
+    margin-bottom: 18px;
+  }
+  .job-title, .education-degree, .org-title, .cert-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #222;
+  }
+  .job-company, .education-institution, .org-role, .cert-org {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 2px;
+  }
+  .job-date, .education-date, .org-date, .cert-date {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 2px;
+  }
+  .job-desc, .education-desc, .org-desc, .cert-desc {
+    font-size: 0.9rem;
+    color: #444;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* Bullets in description */
+  .job-desc ul, .education-desc ul, .org-desc ul, .cert-desc ul {
+    margin: 6px 0 0 18px;
+  }
+
+  /* Certificates list */
+  .cert-item {
+    border-left: 3px solid #6e5edc;
+    padding-left: 12px;
+  }
+
+  /* Fade + slide animation */
+  .fade-slide-up {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Download button */
+  #download-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #6e5edc;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 14px 20px;
+    border-radius: 28px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(110, 94, 220, 0.6);
+    transition: background-color 0.3s ease;
+    z-index: 9999;
+  }
+  #download-btn:hover {
+    background-color: #5949bf;
+  }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    body {
+      padding: 20px 10px;
+    }
+    .resume {
+      flex-direction: column;
+      width: 100%;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+      padding: 28px 20px;
+      gap: 24px;
+    }
+    .main-content {
+      padding: 28px 20px;
+    }
+  }
+
+  /* Print */
+  @media print {
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    #download-btn {
+      display: none !important;
+    }
+    .resume {
+      box-shadow: none;
+      border-radius: 0;
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+    }
+    .section {
+      page-break-inside: avoid;
+    }
+  }
 </style>
 </head>
-
 <body>
-<div class="resume-container">
 
-<!-- HEADER -->
-<header>
-  <div class="header-container">
-    <img src="https://via.placeholder.com/300" alt="Profile Photo" class="profile-img">
-    <div class="header-text">
-      <h1>Ankit Chauhan</h1>
-      <p>Full Stack Developer | Node | Angular</p>
-
-      <div class="header-links">
-        <a href="mailto:chauhanankit2021@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/username">LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- MAIN CONTENT -->
-<main>
-
-  <section class="section">
-    <h2>About Me</h2>
-    <div class="card">
-      Passionate developer with 6years experience building modern web applications,
-      clean interfaces, and performance-optimized solutions.
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Projects</h2>
-
-    <div class="card">
-      <div class="project-title">Portfolio Website</div>
-      <div class="project-tech">HTML · CSS · JavaScript</div>
-      <p>Designed and deployed a responsive portfolio using GitHub Pages.</p>
+<div class="resume" id="resume">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="" alt="Profile Photo" class="profile-photo" id="profile-photo" />
+    <div class="name-role">
+      <h1 id="name"></h1>
+      <p id="role"></p>
     </div>
 
-    <div class="card">
-      <div class="project-title">Task Manager App</div>
-      <div class="project-tech">React · API · CSS</div>
-      <p>Built a task management app with CRUD operations.</p>
-    </div>
-  </section>
+    <div class="contact" id="contact-list"></div>
 
-  <section class="section">
-    <h2>Experience</h2>
-
-    <div class="card">
-      <strong>Software Developer – Company Name</strong><br>
-      <small>2023 – Present</small>
-      <p>Developed web applications and improved UI performance.</p>
+    <div>
+      <div class="sidebar-section-title">Soft Skills</div>
+      <ul class="sidebar-list" id="soft-skills-list"></ul>
     </div>
 
-  </section>
-
-  <section class="section">
-    <h2>Skills</h2>
-    <div class="card skills">
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">React</div>
-      <div class="skill">Git</div>
+    <div>
+      <div class="sidebar-section-title">Languages</div>
+      <ul class="sidebar-list" id="languages-list"></ul>
     </div>
-  </section>
 
-  <section class="section">
-    <h2>Education</h2>
-    <div class="card">
-      <strong>B.Tech – Computer Science</strong><br>
-      <small>University Name | 2020 – 2024</small>
+    <div>
+      <div class="sidebar-section-title">Interests</div>
+      <div class="interests-list" id="interests-list"></div>
     </div>
-  </section>
+  </aside>
 
-</main>
-
-<footer>
-  © 2025 Ankit Chauhan · GitHub Pages
-</footer>
-
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+    <!-- Sections inserted dynamically -->
+  </main>
 </div>
+
+<button id="download-btn" title="Download Resume as PDF">Download PDF</button>
+
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+<script>
+  // Data object with all resume info
+  const resumeData = {
+    profilePhoto: 'https://i.pravatar.cc/150?img=',
+    name: 'Ankit Chauhan',
+    role: 'Fullstack Developer | Node | Angular',
+    contact: [
+      { type: 'phone', label: '7017465239', icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C9.39 21.5 2.5 14.61 2.5 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/></svg>` },
+      { type: 'linkedin', label: 'linkedin.com/in/claire.russel', url: 'https://linkedin.com/in/claire.russel', icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.98 3.5C3.35 3.5 2 4.87 2 6.5c0 1.62 1.34 2.98 2.98 2.98h.03c1.64 0 2.97-1.35 2.97-2.98-.03-1.63-1.33-3-2.97-3zm.02 4.92h-.02a1.17 1.17 0 01-1.17-1.16c0-.64.53-1.16 1.16-1.16.64 0 1.17.52 1.17 1.16-.01.65-.53 1.16-1.14 1.16zm-3.47 6.33h3.54v7.52H2.03v-7.52zM8.5 14.45v-4.68c0-.6.13-1.02.42-1.32.4-.41 1.01-.62 1.76-.62 1.12 0 1.96.73 2.19 1.79.12.49.06 1.16.06 1.84v3.97h-3.53v-2.7h-.01z"/></svg>` }
+    ],
+    softSkills: ['Critical Thinking', 'Leadership', 'Creativity', 'Teamwork', 'Adaptability'],
+    languages: ['English', 'Hindi'],
+    interests: ['Emerging Technologies', 'Blockchain', 'Hackathons and Coding Competitions', 'Outdoor Adventures and Photography'],
+
+    education: [
+      {
+        degree: 'Bachelor of Computer Application',
+        institution: 'Teerthanker Mahaveer university',
+        date: '2015 - 2018',
+        // description: `<ul>
+        //   <li>Relevant Coursework: Data Structures & Algorithms, Software Engineering, Machine Learning, Database Management Systems, Web Development</li>
+        // </ul>`
+      }
+    ],
+
+    volunteerExperience: [
+      {
+        role: 'Lead Programming Instructor',
+        org: 'Code4All Youth Initiative',
+        date: '01/2021 - Present',
+        description: `<ul>
+          <li>Led weekly programming workshops for underrepresented high school students, introducing concepts in Python and JavaScript.</li>
+          <li>Designed and delivered a curriculum that led to a 30% improvement in students’ coding competency.</li>
+        </ul>`
+      },
+      {
+        role: 'Event Coordinator',
+        org: 'Community STEM Outreach Program',
+        date: '01/2019 - 12/2020',
+        description: `<ul>
+          <li>Coordinated logistics for STEM fairs and coding hackathons attended by over 300 participants.</li>
+          <li>Organized sponsorship efforts, securing $8,000 in funding to support outreach activities.</li>
+        </ul>`
+      }
+    ],
+
+    organizations: [
+      {
+        name: 'NextGen Coders Society',
+        role: 'President',
+        date: '2023 - Present'
+      },
+      {
+        name: 'TechForTomorrow Initiative',
+        role: 'Mentor',
+        date: '2022 - Present'
+      }
+    ],
+
+    certificates: [
+      {
+        title: 'Google IT Support Professional Certificate',
+        date: '2024'
+      },
+      {
+        title: 'Microsoft Azure AI Fundamentals Certification',
+        date: '2023'
+      },
+      {
+        title: 'Certified Ethical Hacker (CEH)',
+        date: ''
+      }
+    ]
+  };
+
+  // Helper: escape HTML tags to avoid XSS if needed (optional)
+  function sanitizeHTML(str) {
+    const temp = document.createElement('div');
+    temp.textContent = str;
+    return temp.innerHTML;
+  }
+
+  // Render sidebar
+  const profilePhoto = document.getElementById('profile-photo');
+  const nameEl = document.getElementById('name');
+  const roleEl = document.getElementById('role');
+  const contactList = document.getElementById('contact-list');
+  const softSkillsList = document.getElementById('soft-skills-list');
+  const languagesList = document.getElementById('languages-list');
+  const interestsList = document.getElementById('interests-list');
+
+  profilePhoto.src = resumeData.profilePhoto;
+  nameEl.textContent = resumeData.name;
+  roleEl.textContent = resumeData.role;
+
+  resumeData.contact.forEach(c => {
+    const div = document.createElement('div');
+    div.className = 'contact-item';
+    div.innerHTML = c.icon + (c.url ? `<a href="${c.url}" target="_blank" rel="noopener noreferrer">${c.label}</a>` : `<span>${c.label}</span>`);
+    contactList.appendChild(div);
+  });
+
+  resumeData.softSkills.forEach(skill => {
+    const li = document.createElement('li');
+    li.textContent = skill;
+    softSkillsList.appendChild(li);
+  });
+
+  resumeData.languages.forEach(lang => {
+    const li = document.createElement('li');
+    li.textContent = lang;
+    languagesList.appendChild(li);
+  });
+
+  resumeData.interests.forEach(interest => {
+    const span = document.createElement('span');
+    span.className = 'interest-pill';
+    span.textContent = interest;
+    interestsList.appendChild(span);
+  });
+
+  // Render main content sections dynamically
+  const mainContent = document.getElementById('main-content');
+
+  // Helper function for fade-slide animation on scroll
+  function animateOnScroll(el) {
+    function onScroll() {
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 60) {
+        el.classList.add('visible');
+        window.removeEventListener('scroll', onScroll);
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  }
+
+  function createSection(title) {
+    const section = document.createElement('section');
+    section.className = 'section fade-slide-up';
+    const h2 = document.createElement('h2');
+    h2.className = 'section-title';
+    h2.textContent = title;
+    section.appendChild(h2);
+    mainContent.appendChild(section);
+    animateOnScroll(section);
+    return section;
+  }
+
+  // Education Section
+  if (resumeData.education.length) {
+    const eduSection = createSection('Education');
+    resumeData.education.forEach(edu => {
+      const div = document.createElement('div');
+      div.className = 'education-item';
+      div.innerHTML = `
+        <div class="education-degree">${edu.degree}</div>
+        <div class="education-institution">${edu.institution}</div>
+        <div class="education-date">${edu.date}</div>
+        <div class="education-desc">${edu.description}</div>
+      `;
+      eduSection.appendChild(div);
+    });
+  }
+
+  // Volunteer Experience Section
+  if (resumeData.volunteerExperience.length) {
+    const expSection = createSection('Volunteer Experience');
+    resumeData.volunteerExperience.forEach(exp => {
+      const div = document.createElement('div');
+      div.className = 'job';
+      div.innerHTML = `
+        <div class="job-title">${exp.role}</div>
+        <div class="job-company">${exp.org}</div>
+        <div class="job-date">${exp.date}</div>
+        <div class="job-desc">${exp.description}</div>
+      `;
+      expSection.appendChild(div);
+    });
+  }
+
+  // Organizations Section
+  if (resumeData.organizations.length) {
+    const orgSection = createSection('Organizations');
+    resumeData.organizations.forEach(org => {
+      const div = document.createElement('div');
+      div.className = 'org-item';
+      div.innerHTML = `
+        <div class="org-title">${org.name}</div>
+        <div class="org-role">${org.role}</div>
+        <div class="org-date">${org.date}</div>
+      `;
+      orgSection.appendChild(div);
+    });
+  }
+
+  // Certificates Section
+  if (resumeData.certificates.length) {
+    const certSection = createSection('Certificates');
+    resumeData.certificates.forEach(cert => {
+      const div = document.createElement('div');
+      div.className = 'cert-item';
+      div.innerHTML = `
+        <div class="cert-title">${cert.title}</div>
+        <div class="cert-date">${cert.date}</div>
+      `;
+      certSection.appendChild(div);
+    });
+  }
+
+  // Download PDF
+  document.getElementById('download-btn').addEventListener('click', () => {
+    const element = document.getElementById('resume');
+
+    // Set options for html2pdf
+    const opt = {
+      margin:       10,
+      filename:     `${resumeData.name.toLowerCase().replace(/\s/g, '-')}-resume.pdf`,
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    // Generate PDF
+    html2pdf().set(opt).from(element).save();
+  });
+
+</script>
 </body>
 </html>
