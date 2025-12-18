@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Name | Resume</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #2563eb;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  padding: 60px 20px;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.4);
+  object-fit: cover;
+}
+
+.header-text h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.header-text p {
+  margin-top: 6px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.header-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.header-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+
+.header-links a:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.section {
+  margin-bottom: 45px;
+}
+
+.section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section h2::after {
+  content: '';
+  width: 50px;
+  height: 4px;
+  background: var(--primary);
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  border-radius: 4px;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== PROJECTS ===== */
+.project-title {
+  font-weight: 600;
+}
+
+.project-tech {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill {
+  background: #e0e7ff;
+  color: #1e3a8a;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  margin: 60px 0 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px) {
+  .header-container {
+    text-align: center;
+    justify-content: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-container">
+    <img src="https://via.placeholder.com/300" alt="Profile Photo" class="profile-img">
+    <div class="header-text">
+      <h1>Your Name</h1>
+      <p>Frontend Developer | React | UI Enthusiast</p>
+
+      <div class="header-links">
+        <a href="mailto:you@email.com">Email</a>
+        <a href="https://github.com/username">GitHub</a>
+        <a href="https://linkedin.com/in/username">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <section class="section">
+    <h2>About Me</h2>
+    <div class="card">
+      Passionate developer with experience building modern web applications,
+      clean interfaces, and performance-optimized solutions.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Projects</h2>
+
+    <div class="card">
+      <div class="project-title">Portfolio Website</div>
+      <div class="project-tech">HTML · CSS · JavaScript</div>
+      <p>Designed and deployed a responsive portfolio using GitHub Pages.</p>
+    </div>
+
+    <div class="card">
+      <div class="project-title">Task Manager App</div>
+      <div class="project-tech">React · API · CSS</div>
+      <p>Built a task management app with CRUD operations.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Experience</h2>
+
+    <div class="card">
+      <strong>Software Developer – Company Name</strong><br>
+      <small>2023 – Present</small>
+      <p>Developed web applications and improved UI performance.</p>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <h2>Skills</h2>
+    <div class="card skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Git</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Education</h2>
+    <div class="card">
+      <strong>B.Tech – Computer Science</strong><br>
+      <small>University Name | 2020 – 2024</small>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2025 Your Name · GitHub Pages
+</footer>
+
+</body>
+</html>
