@@ -84,34 +84,64 @@ const resumeData = {
     phone: "7017465239",
     location: "Noida, India"
   },
-  summary: "Experienced full stack developer with 5+ years of expertise in Node.js, Angular, PHP and modern frameworks. Focused on scalable systems, clean APIs and business-driven solutions.",
+  summary: "Experienced full stack developer with 6 years of expertise in Node.js, Angular, PHP, Laravel and modern frameworks. Strong experience in building scalable enterprise applications, clean REST APIs, and business-driven solutions.",
   skills: [
     "Node.js", "Angular", "JavaScript", "PHP", "Laravel",
     "REST APIs", "MySQL", "PostgreSQL", "Microservices", "Git"
   ],
   experience: [
+     {
+      role: "Consultant",
+      company: "Cubastion Consulting Pvt. Ltd",
+      duration: "July/2025 – Present"
+    },
     {
       role: "Senior Associate Consultant",
       company: "Cubastion Consulting Pvt. Ltd",
-      duration: "01/2022 – Present"
+      duration: "July/2023 – June/2025"
+    },
+    {
+      role: "Associate Consultant",
+      company: "Cubastion Consulting Pvt. Ltd",
+      duration: "January/2022 – June/2023"
     },
     {
       role: "PHP Developer",
       company: "Turning Cloud Solutions",
-      duration: "02/2020 – 12/2021"
+      duration: "February/2020 – December/2021"
     }
   ],
   projects: [
-    "Voltas – AMS Platform",
-    "Staff Selection Commission – Vacancy, PET/PST, MIS, Cron Jobs",
-    "X-Net Portal – Payroll & Employee Management",
-    "Daimler Truck – Market Implementation Plan",
-    "V-Mart – Asset Management System"
+    {
+      name: "Voltas",
+      theme: "Voltas (Offsite)",
+      duration: "Jul 2024 – Present (Full Time)",
+      description: "Worked on Voltas Customer Portal, Voltas AMC Portal, and Voltas Data Management System."
+    },
+    {
+      name: "Staff Selection Commission (SSC)",
+      theme: "SSC Headquarter (Onsite)",
+      duration: "Mar 2023 – Jun 2024 (Full Time)",
+      description: "Maintained the legacy SSC website and developed new modules using Node.js, Angular, and PostgreSQL alongside a .NET system maintained by Wipro."
+    },
+    {
+      name: "MIP (Market Implementation Plan)",
+      theme: "Daimler (Onsite)",
+      duration: "Jan 2022 – Jun 2022 (Full Time)",
+      description: "Developed modules such as Template Creation, Project Creation, Phase Creation, System Settings, and User Profile. Admins could configure multi-phase projects with templates and retailers."
+    },
+    {
+      name: "V-Mart Asset Management",
+      theme: "V-Mart (Offsite)",
+      duration: "Feb 2020 – December 2021 (Full Time)",
+      description: "Asset management tool to track, maintain, and manage all organizational assets across V-Mart locations."
+    }
   ],
   education: [
     "MCA – Graphic Era Deemed To Be University (2018–2020)",
     "BCA – Teerthanker Mahaveer University (2015–2018)"
-  ]
+  ],
+  noticePeriod: "1 Month"
 };
 
 /* =====================
@@ -149,12 +179,23 @@ function renderResume(data) {
 
       <section class="section">
         <h3>Projects</h3>
-        <ul>${data.projects.map(p => `<li>${p}</li>`).join('')}</ul>
+        ${data.projects.map(p => `
+          <div style="margin-bottom:16px;">
+            <strong>${p.name}</strong><br>
+            <small>${p.theme} | ${p.duration}</small>
+            <p>${p.description}</p>
+          </div>
+        `).join('')}
       </section>
 
       <section class="section">
         <h3>Education</h3>
         ${data.education.map(ed => `<p>${ed}</p>`).join('')}
+      </section>
+
+      <section class="section">
+        <h3>Availability</h3>
+        <p><strong>Notice Period:</strong> ${data.noticePeriod}</p>
       </section>
     </div>
   `;
