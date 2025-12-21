@@ -3,33 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dynamic Resume | Full Stack Developer</title>
+  <title>Ankit Resume | Full Stack Developer</title>
 
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <!-- PDF Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #333;
     }
+
+    /* PDF SAFE CONTAINER */
     .container {
       max-width: 1100px;
       margin: auto;
       padding: 40px 20px;
+      background: #ffffff; /* IMPORTANT FOR PDF */
       animation: fadeIn 1s ease-in;
     }
+
     .card {
       background: #fff;
       border-radius: 16px;
       padding: 40px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
+
     header {
       display: flex;
       justify-content: space-between;
@@ -37,11 +44,25 @@
       border-bottom: 2px solid #eee;
       padding-bottom: 20px;
     }
+
     h1 { margin: 0; color: #203a43; }
     h2 { margin: 5px 0 0; font-weight: 400; }
-    .contact { font-size: 14px; }
-    .section { margin-top: 30px; animation: slideUp .8s ease; }
-    .section h3 { color: #2c5364; margin-bottom: 10px; }
+
+    .contact {
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .section {
+      margin-top: 30px;
+      animation: slideUp .8s ease;
+    }
+
+    .section h3 {
+      color: #2c5364;
+      margin-bottom: 10px;
+    }
+
     .skills span {
       display: inline-block;
       background: #2c5364;
@@ -51,7 +72,7 @@
       border-radius: 20px;
       font-size: 13px;
     }
-    ul { padding-left: 18px; }
+
     .download-btn {
       position: fixed;
       bottom: 30px;
@@ -62,158 +83,181 @@
       padding: 14px 22px;
       border-radius: 30px;
       cursor: pointer;
+      z-index: 9999;
     }
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    @keyframes slideUp { from {transform:translateY(15px);opacity:0;} to {opacity:1;} }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(15px); opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
+
 <body>
 
-<div class="container" id="resume"></div>
-<button class="download-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+  <div class="container" id="resume"></div>
 
-<script>
-/* =====================
-   DYNAMIC RESUME DATA
-===================== */
-const resumeData = {
-  name: "Ankit Chauhan",
-  title: "Full Stack Developer",
-  contact: {
-    email: "chauhanankit2096@gmail.com",
-    phone: "7017465239",
-    location: "Noida, India"
-  },
-  summary: "Experienced full stack developer with 6 years of expertise in Node.js, Angular, PHP, Laravel and modern frameworks. Strong experience in building scalable enterprise applications, clean REST APIs, and business-driven solutions.",
-  skills: [
-    "Node.js", "Angular", "JavaScript", "PHP", "Laravel",
-    "REST APIs", "MySQL", "PostgreSQL", "Microservices", "Git"
-  ],
-  experience: [
-     {
-      role: "Consultant",
-      company: "Cubastion Consulting Pvt. Ltd",
-      duration: "July/2025 – Present"
-    },
-    {
-      role: "Senior Associate Consultant",
-      company: "Cubastion Consulting Pvt. Ltd",
-      duration: "July/2023 – June/2025"
-    },
-    {
-      role: "Associate Consultant",
-      company: "Cubastion Consulting Pvt. Ltd",
-      duration: "January/2022 – June/2023"
-    },
-    {
-      role: "PHP Developer",
-      company: "Turning Cloud Solutions",
-      duration: "February/2020 – December/2021"
-    }
-  ],
-  projects: [
-    {
-      name: "Voltas",
-      theme: "Voltas (Offsite)",
-      duration: "Jul 2024 – Present (Full Time)",
-      description: "Worked on Voltas Customer Portal, Voltas AMC Portal, and Voltas Data Management System."
-    },
-    {
-      name: "Staff Selection Commission (SSC)",
-      theme: "SSC Headquarter (Onsite)",
-      duration: "Mar 2023 – Jun 2024 (Full Time)",
-      description: "Maintained the legacy SSC website and developed new modules using Node.js, Angular, and PostgreSQL alongside a .NET system maintained by Wipro."
-    },
-    {
-      name: "MIP (Market Implementation Plan)",
-      theme: "Daimler (Onsite)",
-      duration: "Jan 2022 – Jun 2022 (Full Time)",
-      description: "Developed modules such as Template Creation, Project Creation, Phase Creation, System Settings, and User Profile. Admins could configure multi-phase projects with templates and retailers."
-    },
-    {
-      name: "V-Mart Asset Management",
-      theme: "V-Mart (Offsite)",
-      duration: "Feb 2020 – December 2021 (Full Time)",
-      description: "Asset management tool to track, maintain, and manage all organizational assets across V-Mart locations."
-    }
-  ],
-  education: [
-    "MCA – Graphic Era Deemed To Be University (2018–2020)",
-    "BCA – Teerthanker Mahaveer University (2015–2018)"
-  ],
-  noticePeriod: "1 Month"
-};
+  <button class="download-btn" onclick="downloadPDF()">⬇ Download PDF</button>
 
-/* =====================
-   RENDER FUNCTION
-===================== */
-function renderResume(data) {
-  const container = document.getElementById('resume');
-  container.innerHTML = `
-    <div class="card">
-      <header>
-        <div>
-          <h1>${data.name}</h1>
-          <h2>${data.title}</h2>
+  <script>
+    /* =====================
+       RESUME DATA
+    ===================== */
+    const resumeData = {
+      name: "Ankit Chauhan",
+      title: "Full Stack Developer",
+      contact: {
+        email: "chauhanankit2096@gmail.com",
+        phone: "7017465239",
+        location: "Noida, India"
+      },
+      summary: "Experienced full stack developer with 6 years of expertise in Node.js, Angular, PHP, Laravel and modern frameworks. Strong experience in building scalable enterprise applications, clean REST APIs, and business-driven solutions.",
+      skills: [
+        "Node.js", "Angular", "JavaScript", "PHP", "Laravel",
+        "REST APIs", "MySQL", "PostgreSQL", "Microservices", "Git"
+      ],
+      experience: [
+        {
+          role: "Consultant",
+          company: "Cubastion Consulting Pvt. Ltd",
+          duration: "July 2025 – Present"
+        },
+        {
+          role: "Senior Associate Consultant",
+          company: "Cubastion Consulting Pvt. Ltd",
+          duration: "July 2023 – June 2025"
+        },
+        {
+          role: "Associate Consultant",
+          company: "Cubastion Consulting Pvt. Ltd",
+          duration: "January 2022 – June 2023"
+        },
+        {
+          role: "PHP Developer",
+          company: "Turning Cloud Solutions Pvt. Ltd",
+          duration: "February 2020 – December 2021"
+        }
+      ],
+      projects: [
+        {
+          name: "Voltas",
+          theme: "Voltas (Offsite)",
+          duration: "Jul 2024 – Present (Full Time)",
+          description: "Worked on Voltas Customer Portal, Voltas AMC Portal, and Voltas Data Management System."
+        },
+        {
+          name: "Staff Selection Commission (SSC)",
+          theme: "SSC Headquarter (Onsite)",
+          duration: "Mar 2023 – Jun 2024 (Full Time)",
+          description: "Maintained the legacy SSC website and developed new modules using Node.js, Angular, and PostgreSQL alongside a .NET system maintained by Wipro."
+        },
+        {
+          name: "MIP (Market Implementation Plan)",
+          theme: "Daimler (Onsite)",
+          duration: "Jan 2022 – Jun 2022 (Full Time)",
+          description: "Developed modules such as Template Creation, Project Creation, Phase Creation, System Settings, and User Profile. Admins could configure multi-phase projects with templates and retailers."
+        },
+        {
+          name: "V-Mart Asset Management",
+          theme: "V-Mart (Offsite)",
+          duration: "Feb 2020 – Dec 2021 (Full Time)",
+          description: "Asset management tool to track, maintain, and manage all organizational assets across V-Mart locations."
+        }
+      ],
+      education: [
+        "MCA – Graphic Era Deemed To Be University (2018–2020)",
+        "BCA – Teerthanker Mahaveer University (2015–2018)"
+      ],
+      noticePeriod: "1 Month"
+    };
+
+    /* =====================
+       RENDER RESUME
+    ===================== */
+    function renderResume(data) {
+      document.getElementById('resume').innerHTML = `
+        <div class="card">
+          <header>
+            <div>
+              <h1>${data.name}</h1>
+              <h2>${data.title}</h2>
+            </div>
+            <div class="contact">
+              📧 ${data.contact.email}<br>
+              📞 ${data.contact.phone}<br>
+              📍 ${data.contact.location}
+            </div>
+          </header>
+
+          <section class="section"><p>${data.summary}</p></section>
+
+          <section class="section">
+            <h3>Skills</h3>
+            <div class="skills">${data.skills.map(s => `<span>${s}</span>`).join('')}</div>
+          </section>
+
+          <section class="section">
+            <h3>Work Experience</h3>
+            ${data.experience.map(e => `
+              <p><strong>${e.role}</strong> – ${e.company}<br>
+              <small>${e.duration}</small></p>
+            `).join('')}
+          </section>
+
+          <section class="section">
+            <h3>Projects</h3>
+            ${data.projects.map(p => `
+              <div style="margin-bottom:16px;">
+                <strong>${p.name}</strong><br>
+                <small>${p.theme} | ${p.duration}</small>
+                <p>${p.description}</p>
+              </div>
+            `).join('')}
+          </section>
+
+          <section class="section">
+            <h3>Education</h3>
+            ${data.education.map(ed => `<p>${ed}</p>`).join('')}
+          </section>
+
+          <section class="section">
+            <h3>Availability</h3>
+            <p><strong>Notice Period:</strong> ${data.noticePeriod}</p>
+          </section>
         </div>
-        <div class="contact">
-          📧 ${data.contact.email}<br>
-          📞 ${data.contact.phone}<br>
-          📍 ${data.contact.location}
-        </div>
-      </header>
+      `;
+    }
 
-      <section class="section"><p>${data.summary}</p></section>
+    renderResume(resumeData);
 
-      <section class="section">
-        <h3>Skills</h3>
-        <div class="skills">${data.skills.map(s => `<span>${s}</span>`).join('')}</div>
-      </section>
+    /* =====================
+       DOWNLOAD PDF
+    ===================== */
+    async function downloadPDF() {
+      const element = document.getElementById('resume');
 
-      <section class="section">
-        <h3>Work Experience</h3>
-        ${data.experience.map(e => `
-          <p><strong>${e.role}</strong> – ${e.company}<br><small>${e.duration}</small></p>
-        `).join('')}
-      </section>
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        useCORS: true
+      });
 
-      <section class="section">
-        <h3>Projects</h3>
-        ${data.projects.map(p => `
-          <div style="margin-bottom:16px;">
-            <strong>${p.name}</strong><br>
-            <small>${p.theme} | ${p.duration}</small>
-            <p>${p.description}</p>
-          </div>
-        `).join('')}
-      </section>
+      const imgData = canvas.toDataURL('image/png');
+      const { jsPDF } = window.jspdf;
 
-      <section class="section">
-        <h3>Education</h3>
-        ${data.education.map(ed => `<p>${ed}</p>`).join('')}
-      </section>
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = 210;
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
-      <section class="section">
-        <h3>Availability</h3>
-        <p><strong>Notice Period:</strong> ${data.noticePeriod}</p>
-      </section>
-    </div>
-  `;
-}
-
-renderResume(resumeData);
-
-async function downloadPDF() {
-  const canvas = await html2canvas(document.getElementById('resume'), { scale: 2 });
-  const imgData = canvas.toDataURL('image/png');
-  const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF('p', 'mm', 'a4');
-  const width = 210;
-  const height = canvas.height * width / canvas.width;
-  pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-  pdf.save('Ankit_Chauhan_Resume.pdf');
-}
-</script>
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('Ankit_Chauhan_Resume.pdf');
+    }
+  </script>
 
 </body>
 </html>
