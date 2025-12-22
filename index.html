@@ -1,78 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ankit Chauhan | Resume</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- PDF Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: #f0f2f5;
-  color: #000;
 }
-
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 40px 20px;
 }
-
 .card {
   background: #fff;
   border-radius: 16px;
   padding: 40px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
-
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   border-bottom: 2px solid #eee;
   padding-bottom: 20px;
 }
-
-h1 {
-  margin: 0;
-  font-size: 32px;
-}
-
-h2 {
-  margin: 5px 0 0;
-  font-weight: 400;
-  font-size: 18px;
-}
-
-.contact {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* Sections */
-.section {
-  margin-top: 30px;
-}
-
-.section h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-/* Skills */
+h1 { margin: 0; font-size: 32px; }
+h2 { margin: 5px 0 0; font-size: 18px; font-weight: 400; }
+.section { margin-top: 30px; }
 .skills span {
   display: inline-block;
   background: #000;
@@ -82,8 +45,6 @@ h2 {
   border-radius: 20px;
   font-size: 13px;
 }
-
-/* Button */
 .download-btn {
   position: fixed;
   bottom: 30px;
@@ -94,24 +55,10 @@ h2 {
   padding: 14px 22px;
   border-radius: 30px;
   cursor: pointer;
-  font-size: 14px;
 }
-
-/* ===== PDF SAFETY FIX ===== */
 .no-animation * {
   animation: none !important;
   transition: none !important;
-  opacity: 1 !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-@media print {
-  * {
-    color: #000 !important;
-    background: #fff !important;
-    box-shadow: none !important;
-  }
 }
 </style>
 </head>
@@ -119,76 +66,15 @@ h2 {
 <body>
 
 <div class="container" id="resume"></div>
-
 <button class="download-btn" onclick="downloadPDF()">⬇ Download PDF</button>
 
 <script>
-/* =====================
-   RESUME DATA
-===================== */
-const resumeData = {
-  name: "Ankit Chauhan",
-  title: "Full Stack Developer",
-  contact: {
-    email: "chauhanankit2096@gmail.com",
-    phone: "7017465239",
-    location: "Noida, India"
-  },
-  summary:
-    "Experienced full stack developer with 6 years of expertise in Node.js, Angular, PHP, Laravel and modern frameworks. Strong experience in building scalable enterprise applications, clean REST APIs, and business-driven solutions.",
-  skills: [
-    "Node.js", "Angular", "JavaScript", "PHP", "Laravel",
-    "REST APIs", "MySQL", "PostgreSQL", "Microservices", "Git", "Elastic Search" , "Jenkins"
-  ],
-  experience: [
-    { role: "Consultant", company: "Cubastion Consulting Pvt. Ltd", duration: "July 2025 – Present" },
-    { role: "Senior Associate Consultant", company: "Cubastion Consulting Pvt. Ltd", duration: "July 2023 – June 2025" },
-    { role: "Associate Consultant", company: "Cubastion Consulting Pvt. Ltd", duration: "January 2022 – June 2023" },
-    { role: "PHP Developer", company: "Turning Cloud Solutions Pvt. Ltd", duration: "February 2020 – December 2021" }
-  ],
-  projects: [
-    {
-      name: "Voltas",
-      theme: "Voltas (Offsite)",
-      duration: "Jul 2024 – Present",
-      description: "Currently working on different portals of voltas
-        1: Voltas Selfcare Portal : It is a customer portal through which customers can do multiple things like
-                                    i) Raise SR.
-                                    ii) Buy AMC.
-                                    iii) Manage Profile.
-                                    iv) Add/Delete Product.
-                                    v) Escalate SR.
-        2: Voltas AMC Portal: It is a portal through which Dealers and Franchise can sell AMC directly to customers.They have option to search customer by Phone number, Product serial number, email etc by which user with their product will be searched and by selecting product different applicable amc will be available to sell."
-    },
-    {
-      name: "Staff Selection Commission (SSC)",
-      theme: "SSC Headquarter (Onsite)",
-      duration: "Mar 2023 – Jun 2024",
-      description: "Maintained legacy SSC systems and developed new modules using Node.js, Angular, PostgreSQL."
-    },
-    {
-      name: "MIP (Market Implementation Plan)",
-      theme: "Daimler (Onsite)",
-      duration: "Jan 2022 – Jun 2022",
-      description: "Built project configuration, templates, multi-phase project handling, and admin modules."
-    },
-    {
-      name: "V-Mart Asset Management",
-      theme: "V-Mart (Offsite)",
-      duration: "Feb 2020 – Dec 2021",
-      description: "Asset tracking and management system for multi-location retail operations."
-    }
-  ],
-  education: [
-    "MCA – Graphic Era Deemed To Be University (2018–2020)",
-    "BCA – Teerthanker Mahaveer University (2015–2018)"
-  ],
-  noticePeriod: "1 Month"
-};
+async function loadResume() {
+  const response = await fetch("resume-data.json");
+  const data = await response.json();
+  renderResume(data);
+}
 
-/* =====================
-   RENDER RESUME
-===================== */
 function renderResume(data) {
   document.getElementById("resume").innerHTML = `
     <div class="card">
@@ -197,14 +83,14 @@ function renderResume(data) {
           <h1>${data.name}</h1>
           <h2>${data.title}</h2>
         </div>
-        <div class="contact">
+        <div>
           📧 ${data.contact.email}<br>
           📞 ${data.contact.phone}<br>
           📍 ${data.contact.location}
         </div>
       </header>
 
-      <div class="section"><p>${data.summary}</p></div>
+      <div class="section">${data.summary}</div>
 
       <div class="section">
         <h3>Skills</h3>
@@ -224,14 +110,14 @@ function renderResume(data) {
         <h3>Projects</h3>
         ${data.projects.map(p =>
           `<p><strong>${p.name}</strong><br>
-           <small>${p.theme} | ${p.duration}</small><br>
-           ${p.description}</p>`
+          <small>${p.theme} | ${p.duration}</small><br>
+          ${p.description}</p>`
         ).join("")}
       </div>
 
       <div class="section">
         <h3>Education</h3>
-        ${data.education.map(ed => `<p>${ed}</p>`).join("")}
+        ${data.education.map(e => `<p>${e}</p>`).join("")}
       </div>
 
       <div class="section">
@@ -242,34 +128,18 @@ function renderResume(data) {
   `;
 }
 
-renderResume(resumeData);
-
-/* =====================
-   PDF DOWNLOAD
-===================== */
 async function downloadPDF() {
   document.body.classList.add("no-animation");
-
-  const element = document.getElementById("resume");
-
-  const canvas = await html2canvas(element, {
-    scale: 2,
-    backgroundColor: "#ffffff",
-    useCORS: true
-  });
-
-  const imgData = canvas.toDataURL("image/png");
+  const canvas = await html2canvas(document.getElementById("resume"), { scale: 2 });
+  const img = canvas.toDataURL("image/png");
   const { jsPDF } = window.jspdf;
-
   const pdf = new jsPDF("p", "mm", "a4");
-  const width = 210;
-  const height = (canvas.height * width) / canvas.width;
-
-  pdf.addImage(imgData, "PNG", 0, 0, width, height);
+  pdf.addImage(img, "PNG", 0, 0, 210, (canvas.height * 210) / canvas.width);
   pdf.save("Ankit_Chauhan_Resume.pdf");
-
   document.body.classList.remove("no-animation");
 }
+
+loadResume();
 </script>
 
 </body>
