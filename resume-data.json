@@ -1,0 +1,77 @@
+{
+  "name": "Ankit Chauhan",
+  "title": "Full Stack Developer",
+  "contact": {
+    "email": "chauhanankit2096@gmail.com",
+    "phone": "7017465239",
+    "location": "Noida, India"
+  },
+  "summary": "Experienced full stack developer with 6 years of expertise in Node.js, Angular, PHP, Laravel and modern frameworks. Strong experience in building scalable enterprise applications, clean REST APIs, and business-driven solutions.",
+  "skills": [
+    "Node.js",
+    "Angular",
+    "JavaScript",
+    "PHP",
+    "Laravel",
+    "REST APIs",
+    "MySQL",
+    "PostgreSQL",
+    "Microservices",
+    "Git",
+    "Elasticsearch",
+    "Jenkins"
+  ],
+  "experience": [
+    {
+      "role": "Consultant",
+      "company": "Cubastion Consulting Pvt. Ltd",
+      "duration": "July 2025 – Present"
+    },
+    {
+      "role": "Senior Associate Consultant",
+      "company": "Cubastion Consulting Pvt. Ltd",
+      "duration": "July 2023 – June 2025"
+    },
+    {
+      "role": "Associate Consultant",
+      "company": "Cubastion Consulting Pvt. Ltd",
+      "duration": "January 2022 – June 2023"
+    },
+    {
+      "role": "PHP Developer",
+      "company": "Turning Cloud Solutions Pvt. Ltd",
+      "duration": "February 2020 – December 2021"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Voltas",
+      "theme": "Voltas (Offsite)",
+      "duration": "Jul 2024 – Present",
+      "description": "Worked on Voltas Selfcare Portal and Voltas AMC Portal. Features include SR creation, AMC purchase, profile management, product management, SR escalation, and dealer/franchise AMC sales."
+    },
+    {
+      "name": "Staff Selection Commission (SSC)",
+      "theme": "SSC Headquarter (Onsite)",
+      "duration": "Mar 2023 – Jun 2024",
+      "description": "Maintained legacy SSC systems and developed new modules using Node.js, Angular and PostgreSQL."
+    },
+    {
+      "name": "MIP (Market Implementation Plan)",
+      "theme": "Daimler (Onsite)",
+      "duration": "Jan 2022 – Jun 2022",
+      "description": "Built project templates, configuration modules, multi-phase workflows and admin panels."
+    },
+    {
+      "name": "V-Mart Asset Management",
+      "theme": "V-Mart (Offsite)",
+      "duration": "Feb 2020 – Dec 2021",
+      "description": "Asset tracking and management system for multi-location retail operations."
+    }
+  ],
+  "education": [
+    "MCA – Graphic Era Deemed To Be University (2018–2020)",
+    "BCA – Teerthanker Mahaveer University (2015–2018)"
+  ],
+  "noticePeriod": "1 Month"
+}
