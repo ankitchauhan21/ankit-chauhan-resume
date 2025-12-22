@@ -44,12 +44,12 @@
     }
   ],
   "projects": [
-    {
-      "name": "Voltas",
-      "theme": "Voltas (Offsite)",
-      "duration": "Jul 2024 – Present",
-      "description": "Worked on Voltas Selfcare Portal and Voltas AMC Portal. Features include SR creation, AMC purchase, profile management, product management, SR escalation, and dealer/franchise AMC sales."
-    },
+   {
+  "name": "Voltas",
+  "theme": "Voltas (Offsite)",
+  "duration": "Jul 2024 – Present",
+  "description": "Worked on multiple Voltas portals including Voltas Selfcare Portal, Voltas AMC Portal, and DMS Portal. The Selfcare Portal enables customers to raise service requests, buy AMC plans, manage profiles, and handle product-related actions. The AMC Portal allows dealers and franchise partners to sell AMC plans directly to customers. The DMS Portal manages and stores all documents and files related to various Voltas applications."
+   },
     {
       "name": "Staff Selection Commission (SSC)",
       "theme": "SSC Headquarter (Onsite)",
