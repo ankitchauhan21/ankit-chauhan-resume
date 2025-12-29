@@ -130,12 +130,32 @@ function renderResume(data) {
 
 async function downloadPDF() {
   document.body.classList.add("no-animation");
-  const canvas = await html2canvas(document.getElementById("resume"), { scale: 2 });
-  const img = canvas.toDataURL("image/png");
+
+  const resume = document.getElementById("resume");
+
+  const canvas = await html2canvas(resume, {
+    scale: 1.2,              // ↓ was 2 (major size reduction)
+    useCORS: true,
+    backgroundColor: "#ffffff"
+  });
+
+  // Convert to JPEG with compression
+  const imgData = canvas.toDataURL("image/jpeg", 0.65); // 65% quality
+
   const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF("p", "mm", "a4");
-  pdf.addImage(img, "PNG", 0, 0, 210, (canvas.height * 210) / canvas.width);
+  const pdf = new jsPDF({
+    orientation: "p",
+    unit: "mm",
+    format: "a4",
+    compress: true
+  });
+
+  const pageWidth = 210;
+  const pageHeight = (canvas.height * pageWidth) / canvas.width;
+
+  pdf.addImage(imgData, "JPEG", 0, 0, pageWidth, pageHeight, undefined, "FAST");
   pdf.save("Ankit_Chauhan_Resume.pdf");
+
   document.body.classList.remove("no-animation");
 }
 
