@@ -48,32 +48,37 @@
   "projects": [
     {
   "name": "PMJVK (Pradhan Mantri Jan Vikas Karyakram)",
-  "theme": "PMJVK Digital Transformation (Onsite)",
-  "duration": "Jan 2024 – Present",
-  "description": "PMJVK (Pradhan Mantri Jan Vikas Karyakram) is a Indian government scheme by the Ministry of Minority Affairs to build community infrastructure in Minority Concentration Areas (MCAs), aiming to reduce development gaps in sectors like education, health, skill development, sanitation, and drinking water, by providing essential amenities and improving socio-economic conditions for minority communities. It focuses on need-based projects, prioritizing education, health, and skills, with earmarks for women's facilities, and works with state governments."
-   },
-   {
+  "timeline": "Jan 2026 – Present",
+  "role": "Project Manager | Full Stack Developer",
+  "technologies": ["Node.js", "React", "MySQL","Microservices"],
+  "description": "PMJVK is a Government of India initiative by the Ministry of Minority Affairs to develop community infrastructure in Minority Concentration Areas. The system enables project lifecycle management, fund disbursement workflows, vendor payments, and real-time monitoring integrated with PFMS and IFMIS."
+},
+{
   "name": "Voltas",
-  "theme": "Voltas (Offsite)",
-  "duration": "Jul 2024 – Dec 2025",
+  "timeline": "Jul 2024 – Dec 2025",
+  "role": "Full Stack Developer",
+  "technologies": ["Node.js", "Angular", "MySQL", "REST APIs", "Microservices"],
   "description": "Worked on multiple Voltas portals including Voltas Selfcare Portal, Voltas AMC Portal, and DMS Portal. The Selfcare Portal enables customers to raise service requests, buy AMC plans, manage profiles, and handle product-related actions. The AMC Portal allows dealers and franchise partners to sell AMC plans directly to customers. The DMS Portal manages and stores all documents and files related to various Voltas applications."
-   },
+},
     {
       "name": "Staff Selection Commission (SSC)",
-      "theme": "SSC Headquarter (Onsite)",
-      "duration": "Mar 2023 – Jun 2024",
+      "timeline": "Mar 2023 – Jun 2024",
+      "role": "Full Stack Developer",
+      "technologies": ["Node.js", "Angular", "PostgreSQL", "REST APIs", "Microservices"],
       "description": "Maintained legacy SSC systems and developed new modules using Node.js, Angular and PostgreSQL."
     },
     {
       "name": "MIP (Market Implementation Plan)",
-      "theme": "Daimler (Offsite)",
-      "duration": "Jan 2022 – Jun 2022",
+      "role": "Backend Developer",
+      "timeline": "Jan 2022 – Jun 2022",
+       "technologies": ["PHP", "Laravel", "PostgreSQL", "REST APIs"],
       "description": "Built project templates, configuration modules, multi-phase workflows and admin panels."
     },
     {
       "name": "V-Mart Asset Management",
-      "theme": "V-Mart (Offsite)",
-      "duration": "Feb 2020 – Dec 2021",
+     "role": "Backend Developer",
+      "timeline": "Feb 2020 – Dec 2021",
+       "technologies": ["PHP", "Laravel", "PostgreSQL", "REST APIs"],
       "description": "Asset tracking and management system for multi-location retail operations."
     }
   ],
