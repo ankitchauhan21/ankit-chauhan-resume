@@ -46,10 +46,16 @@
     }
   ],
   "projects": [
+    {
+  "name": "PMJVK (Pradhan Mantri Jan Vikas Karyakram)",
+  "theme": "PMJVK Digital Transformation (Onsite)",
+  "duration": "Jan 2024 – Present",
+  "description": "PMJVK (Pradhan Mantri Jan Vikas Karyakram) is a Indian government scheme by the Ministry of Minority Affairs to build community infrastructure in Minority Concentration Areas (MCAs), aiming to reduce development gaps in sectors like education, health, skill development, sanitation, and drinking water, by providing essential amenities and improving socio-economic conditions for minority communities. It focuses on need-based projects, prioritizing education, health, and skills, with earmarks for women's facilities, and works with state governments."
+   },
    {
   "name": "Voltas",
   "theme": "Voltas (Offsite)",
-  "duration": "Jul 2024 – Present",
+  "duration": "Jul 2024 – Dec 2025",
   "description": "Worked on multiple Voltas portals including Voltas Selfcare Portal, Voltas AMC Portal, and DMS Portal. The Selfcare Portal enables customers to raise service requests, buy AMC plans, manage profiles, and handle product-related actions. The AMC Portal allows dealers and franchise partners to sell AMC plans directly to customers. The DMS Portal manages and stores all documents and files related to various Voltas applications."
    },
     {
@@ -60,7 +66,7 @@
     },
     {
       "name": "MIP (Market Implementation Plan)",
-      "theme": "Daimler (Onsite)",
+      "theme": "Daimler (Offsite)",
       "duration": "Jan 2022 – Jun 2022",
       "description": "Built project templates, configuration modules, multi-phase workflows and admin panels."
     },
